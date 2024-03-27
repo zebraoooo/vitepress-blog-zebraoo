@@ -19,7 +19,7 @@
 
       <div style="display: flex; gap: 10px;margin-top: 10px">
         <button>
-          <a href="/pages/archivers">归档</a>
+          <a href="/pages/archivers.html">归档</a>
         </button>
 
         <button>
