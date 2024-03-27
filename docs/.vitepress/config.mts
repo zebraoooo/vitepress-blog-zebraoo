@@ -2,13 +2,12 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "zebraoo.blog",
-  description: "A VitePress Site",
+  title: "zebraoo.life",
+  description: "A VitePress Site zebraoo.life",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/avatar.jpg',
     nav: [
-      { text: 'Blog', link: '/' },
+      { text: 'Home', link: '/' },
       { text: '归档', link: '/pages/archivers' },
     ],
 

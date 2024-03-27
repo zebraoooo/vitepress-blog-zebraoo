@@ -9,6 +9,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@giscus/vue": "^3.0.0",
     "dayjs": "^1.11.10"
   }
 }

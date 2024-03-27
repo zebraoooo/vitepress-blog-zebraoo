@@ -8,12 +8,13 @@ interface Post {
     string: string
   }
   excerpt: string | undefined
+  tags?: string[]
 }
 
 declare const data: Post[]
 export { data }
 
-export default createContentLoader('posts/*.md', {
+export default createContentLoader('posts/**/*.md', {
   excerpt: true,
   transform(raw): Post[] {
     return raw
@@ -21,7 +22,8 @@ export default createContentLoader('posts/*.md', {
         title: frontmatter.title,
         url,
         excerpt,
-        date: formatDate(frontmatter.date)
+        date: formatDate(frontmatter.date),
+        tags: frontmatter.tags
       }))
       .sort((a, b) => b.date.time - a.date.time)
   }
