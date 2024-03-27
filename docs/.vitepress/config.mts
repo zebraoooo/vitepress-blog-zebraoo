@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "zebraoo.life",
@@ -11,23 +10,21 @@ export default defineConfig({
       { text: '归档', link: '/pages/archivers' },
     ],
     sidebar: {
-      '/posts/vue/': [
-        {
-          text: 'vue',
-          items: [
-            { text: 'vue2', link: '/posts/vue/vue2' },
-            { text: 'vue3', link: '/posts/vue/vue3' },
-
-          ]
-        }
-      ],
       '/posts/android/': [
         {
           text: 'android',
           items: [
             { text: 'compose', link: '/posts/android/compose' },
             { text: 'gradle', link: '/posts/android/gradle' },
-
+          ]
+        }
+      ],
+      '/posts/vue/': [
+        {
+          text: 'vue',
+          items: [
+            { text: 'vue2', link: '/posts/vue/vue2' },
+            { text: 'vue3', link: '/posts/vue/vue3' },
           ]
         }
       ],
@@ -49,6 +46,6 @@ export default defineConfig({
     },
     search: {
       provider: 'local'
-    }
+    },
   }
 })
