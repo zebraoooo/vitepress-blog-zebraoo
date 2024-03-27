@@ -10,8 +10,19 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: '归档', link: '/pages/archivers' },
     ],
+    sidebar: {
+      '/posts/vue/': [
+        {
+          text: 'vue',
+          items: [
+            { text: 'vue2', link: '/posts/vue/vue2/' },
+            { text: 'vue3', link: '/posts/vue/vue3/' },
 
-
+          ]
+        }
+      ],
+    }
+    ,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/zebraoo' }
     ],

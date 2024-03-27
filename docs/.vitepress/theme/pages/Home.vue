@@ -14,7 +14,7 @@
 
     <div>
       <span>
-        <img :src="`./public/logo.png`" />
+        <img src="/public/logo.png" />
       </span>
 
       <div style="display: flex; gap: 10px;margin-top: 10px">

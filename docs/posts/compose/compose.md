@@ -2,10 +2,10 @@
 title: 'jetpack compose'
 date: 2024-03-27
 author: zebraoo
-category: jetpack compose
 tags:
   - jetpack compose
   - android
+  - kotlin
 ---
 # jetpack compose 知识点
 
