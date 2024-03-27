@@ -15,8 +15,18 @@ export default defineConfig({
         {
           text: 'vue',
           items: [
-            { text: 'vue2', link: '/posts/vue/vue2/' },
-            { text: 'vue3', link: '/posts/vue/vue3/' },
+            { text: 'vue2', link: '/posts/vue/vue2' },
+            { text: 'vue3', link: '/posts/vue/vue3' },
+
+          ]
+        }
+      ],
+      '/posts/android/': [
+        {
+          text: 'android',
+          items: [
+            { text: 'compose', link: '/posts/android/compose' },
+            { text: 'gradle', link: '/posts/android/gradle' },
 
           ]
         }

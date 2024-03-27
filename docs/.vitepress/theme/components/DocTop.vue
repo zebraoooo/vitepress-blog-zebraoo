@@ -20,6 +20,7 @@ import { computed } from "vue";
 const { theme, page, title } = useData();
 const { frontmatter } = page.value;
 const { author, category, date, tags } = frontmatter;
+console.log("frontmatter---",frontmatter)
 
 const time = computed(() => {
   return dayjs(date).format("YYYY-MM-DD");
