@@ -2,7 +2,7 @@
   <div
     style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px"
   >
-    <span>{{ time }}</span>
+    <span style="font-size: 12px;">{{ time }}</span>
 
     <a :href='`/pages/archivers?tag=${tag}`' v-for="tag of page.frontmatter.tags" style="font-size: 12px">
       <span>. {{ tag }}</span>

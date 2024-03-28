@@ -1,67 +1,82 @@
 {
-  "hash": "5187d910",
-  "configHash": "40334111",
-  "lockfileHash": "8e0ebfef",
-  "browserHash": "d27e1719",
+  "hash": "1d03d32c",
+  "configHash": "5e3be980",
+  "lockfileHash": "0a3af81f",
+  "browserHash": "210d2ea2",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "aa87d125",
+      "fileHash": "b9696edf",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "e2c31c44",
+      "fileHash": "b23da492",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "b839c747",
+      "fileHash": "749f6f32",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "c54fb961",
+      "fileHash": "4425a8ba",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "cc910192",
+      "fileHash": "f4793923",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "8239a0a7",
+      "fileHash": "05043586",
+      "needsInterop": false
+    },
+    "@giscus/vue": {
+      "src": "../../../../node_modules/@giscus/vue/dist/index.js",
+      "file": "@giscus_vue.js",
+      "fileHash": "4b672700",
       "needsInterop": false
     },
     "dayjs": {
       "src": "../../../../node_modules/dayjs/dayjs.min.js",
       "file": "dayjs.js",
-      "fileHash": "6e1a2164",
+      "fileHash": "d307771f",
       "needsInterop": true
-    },
-    "@giscus/vue": {
-      "src": "../../../../node_modules/@giscus/vue/dist/index.js",
-      "file": "@giscus_vue.js",
-      "fileHash": "d3709946",
-      "needsInterop": false
     },
     "dayjs/plugin/utc": {
       "src": "../../../../node_modules/dayjs/plugin/utc.js",
       "file": "dayjs_plugin_utc.js",
-      "fileHash": "289a0079",
+      "fileHash": "bbaf0fbd",
       "needsInterop": true
+    },
+    "tdesign-vue-next": {
+      "src": "../../../../node_modules/tdesign-vue-next/es/index.mjs",
+      "file": "tdesign-vue-next.js",
+      "fileHash": "50fd6563",
+      "needsInterop": false
+    },
+    "tdesign-icons-vue-next": {
+      "src": "../../../../node_modules/tdesign-icons-vue-next/esm/index.js",
+      "file": "tdesign-icons-vue-next.js",
+      "fileHash": "0af17934",
+      "needsInterop": false
     }
   },
   "chunks": {
     "giscus-BNK3dBIH-2QA577VX": {
       "file": "giscus-BNK3dBIH-2QA577VX.js"
+    },
+    "chunk-V3ZFUABI": {
+      "file": "chunk-V3ZFUABI.js"
     },
     "chunk-4I4JYJZN": {
       "file": "chunk-4I4JYJZN.js"
