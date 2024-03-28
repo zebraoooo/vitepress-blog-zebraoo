@@ -11,7 +11,9 @@ tags:
 
 > [官网](https://developer.android.com/studio/profile/memory-profiler?hl=zh-cn)。
 
-<ImageViewer :img="'https://developer.android.com/static/studio/images/profile/memory-profiler-callouts_2x.png?hl=zh-cn'"/>
+<!-- <ImageViewer :img="'https://developer.android.com/static/studio/images/profile/memory-profiler-callouts_2x.png?hl=zh-cn'"/> -->
+
+![](https://developer.android.com/static/studio/images/profile/memory-profiler-callouts_2x.png?hl=zh-cn)
 
 如上图所示，内存分析器的默认视图包括以下各项：
 

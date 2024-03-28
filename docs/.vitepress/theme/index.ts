@@ -11,6 +11,7 @@ import DocTop from "./components/DocTop.vue"
 import Giscus from "./components/Giscus.vue"
 import 'tdesign-vue-next/es/style/index.css'
 import  ImageViewer from "./components/ImageViewer.vue"
+import  MdImageView from "./components/MdImageView.vue"
 
 export default {
   extends: DefaultTheme,
@@ -18,7 +19,8 @@ export default {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
       'doc-before': () => h(DocTop),
-      "doc-after": () => h(Giscus)
+      "doc-after": () => h(Giscus),
+      "doc-bottom": () => h(MdImageView),
     })
   },
   enhanceApp({ app, router, siteData }) {
