@@ -30,7 +30,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: '归档', link: '/pages/archivers' },
-      { text: '留言板', link: '/pages/guestbook' },
+      { text: '记事本', link: '/pages/note' },
     ],
     sidebar: {
       '/posts/android/': [
@@ -51,16 +51,7 @@ export default defineConfig({
             { text: 'vue3', link: '/posts/vue/vue3/vue3' },
           ]
         }
-      ],
-      '/posts/blog/': [
-        {
-          text: 'blog',
-          items: [
-            { text: '有趣的blog', link: '/posts/blog/sample' },
-            { text: 'vitepress', link: '/posts/blog/vitepress' },
-          ]
-        }
-      ],
+      ]
     }
     ,
     socialLinks: [
