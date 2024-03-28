@@ -6,12 +6,12 @@ import './style.css'
 import './custom.css'
 import Home from "./pages/Home.vue"
 import Archivers from "./pages/Archivers.vue"
-import Tags from "./pages/Tags.vue"
 import DocTop from "./components/DocTop.vue"
 import Giscus from "./components/Giscus.vue"
 import 'tdesign-vue-next/es/style/index.css'
 import  ImageViewer from "./components/ImageViewer.vue"
 import  MdImageView from "./components/MdImageView.vue"
+import GuestBook from "./pages/GuestBook.vue"
 
 export default {
   extends: DefaultTheme,
@@ -26,7 +26,8 @@ export default {
   enhanceApp({ app, router, siteData }) {
     app.component('Home',Home)
     app.component('Archivers',Archivers)
-    app.component('Tags',Tags)
     app.component('ImageViewer',ImageViewer)
+    app.component('GuestBook',GuestBook)
+    app.component('Giscus',Giscus)
   }
 } satisfies Theme

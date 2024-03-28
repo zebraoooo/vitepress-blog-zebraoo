@@ -1,5 +1,5 @@
 ---
-title: 'vitepress blog sample'
+title: '有趣的blog'
 date: 2024-03-28
 author: zebraoo
 tags:

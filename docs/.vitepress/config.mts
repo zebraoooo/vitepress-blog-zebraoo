@@ -30,6 +30,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: '归档', link: '/pages/archivers' },
+      { text: '留言板', link: '/pages/guestbook' },
     ],
     sidebar: {
       '/posts/android/': [
@@ -38,7 +39,7 @@ export default defineConfig({
           items: [
             { text: 'compose', link: '/posts/android/compose' },
             { text: 'gradle', link: '/posts/android/gradle' },
-            { text: 'gradle', link: '/posts/android/profiler' },
+            { text: 'profiler', link: '/posts/android/profiler' },
           ]
         }
       ],
@@ -55,7 +56,7 @@ export default defineConfig({
         {
           text: 'blog',
           items: [
-            { text: 'sample', link: '/posts/blog/sample' },
+            { text: '有趣的blog', link: '/posts/blog/sample' },
             { text: 'vitepress', link: '/posts/blog/vitepress' },
           ]
         }
@@ -63,7 +64,7 @@ export default defineConfig({
     }
     ,
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/zebraoo' }
+      { icon: 'github', link: 'https://github.com/zebraoo/vitepress-blog-zebraoo' }
     ],
     footer: {
       message: '欢迎',
