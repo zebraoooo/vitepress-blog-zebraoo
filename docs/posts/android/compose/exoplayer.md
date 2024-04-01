@@ -44,10 +44,12 @@ fun VideoView(player: Player, onDispose: (Player) -> Unit) {
 
 @Composable
 fun ComposeView(videoViewModel: VideoViewModel = viewModel()){
-  VideoView(exoPlayer) {
-    exoPlayer.clearPlayer(it)
-    }
 
+ val exoPlayer = bannerViewModel.getMultipleExoPlayer(banner.data, context, )
+ 
+ VideoView(exoPlayer) {
+  videoViewModel.clearPlayer(it)
+  }
 
 }
 
