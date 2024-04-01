@@ -6,12 +6,12 @@ import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 export default defineConfig({
   title: "zebraoo.life",
   description: "A VitePress Site zebraoo.life",
-  markdown:{
-    image:{
-      lazyLoading:true
+  markdown: {
+    image: {
+      lazyLoading: true
     }
   },
-  vite:{
+  vite: {
     plugins: [
       AutoImport({
         resolvers: [TDesignResolver({
@@ -37,9 +37,15 @@ export default defineConfig({
         {
           text: 'android',
           items: [
-            { text: 'compose', link: '/posts/android/compose' },
             { text: 'gradle', link: '/posts/android/gradle' },
             { text: 'profiler', link: '/posts/android/profiler' },
+            {
+              text: 'compose',
+              items: [
+                { text: 'index', link: '/posts/android/compose/index' },
+                { text: 'exoplayer', link: '/posts/android/compose/exoplayer' }
+              ]
+            }
           ]
         }
       ],
