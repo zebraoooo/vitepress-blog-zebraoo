@@ -25,6 +25,9 @@ export default defineConfig({
       }),
     ],
   },
+  sitemap: {
+    hostname: 'https://zebraoo.life'
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
