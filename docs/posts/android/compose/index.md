@@ -27,12 +27,6 @@ tags:
 
 通过引用ViewModel
 
-## 在compose HorizontalPager组件中如何引用exoplayer，并在滑动过程中不卡顿和黑屏
-
-1、应把每个exoplayer实例保存起来，然后复用
-```kotlin
-private val players = hashMapOf<Int, ExoPlayer>()
-```
 
 
 

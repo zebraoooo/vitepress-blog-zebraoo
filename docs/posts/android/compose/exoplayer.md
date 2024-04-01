@@ -7,7 +7,7 @@ tags:
   - android
   - kotlin
 ---
-创建一个compose组件，并引入AndroidView
+## 创建一个compose组件，并引入AndroidView
 ```kotlin
 
 @OptIn(UnstableApi::class)
@@ -38,7 +38,7 @@ fun VideoView(player: Player, onDispose: (Player) -> Unit) {
 }
 
 ```
-在另外一个compose组件中引用，
+## 在另外一个compose组件中引用，
 > 我习惯于在viewmodel中去添加和获取数据源，因为可以更好的结合hilt
 ```kotlin
 
@@ -55,7 +55,8 @@ fun ComposeView(videoViewModel: VideoViewModel = viewModel()){
 
 ```
 <br>
-添加数据源和缓存，这里我使用了hilt的单例模式
+
+## 添加数据源和缓存，这里我使用了hilt的单例模式
 
 > 注意点：生命周期范围应在viewmodel中
 ```kotlin
@@ -87,7 +88,7 @@ class VideoModule {
 
 ```
 
-viewmodel
+## viewmodel
 
 ```kotlin
 
@@ -183,7 +184,7 @@ class videoViewModel @Inject constructor(
 }
 
 ```
-缓存一定要用单例模式
+## 缓存一定要用单例模式
 ```kotlin
 
 @UnstableApi
@@ -206,12 +207,10 @@ class VideoCache {
 
 ```
 
-> 总结
+## 总结
 经结合HorizontalPager测试，exoplayer占用内存大小不到90m（根据视频大小），每次切换都会释放exoplayer实例。
-<br>
-<br>
 
-> 还需要补充的点
+## 还需要补充的点
 - 如果想仿抖音那种，还需要，完善动画效果、无缝播放效果、实例缓存等等
 
 
