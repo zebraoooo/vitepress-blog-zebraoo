@@ -7,7 +7,9 @@ tags:
   - android
   - kotlin
 ---
-## 创建一个compose组件，并引入AndroidView
+
+## 创建一个 compose 组件，并引入 AndroidView
+
 ```kotlin
 
 @OptIn(UnstableApi::class)
@@ -38,15 +40,47 @@ fun VideoView(player: Player, onDispose: (Player) -> Unit) {
 }
 
 ```
-## 在另外一个compose组件中引用，
-> 我习惯于在viewmodel中去添加和获取数据源，因为可以更好的结合hilt
+
+## 在另外一个 compose 组件中引用，
+
+> 我习惯于在 viewmodel 中去添加和获取数据源，因为可以更好的结合 hilt
+
 ```kotlin
+
+ https://juejin.cn/post/7124893188812668964#heading-7 感谢这篇文章
+ https://github.com/llwdslal/WanAndroid/tree/07-banner%E5%AE%9E%E7%8E%B0
+ 
+ 增加isAutoLoop的判断，撇去pagerState.isScrollInProgress
+var isAutoLoop by remember { mutableStateOf(autoLoop) }
+
+.pointerInput(items) {
+                detectTapGestures(
+                    onPress = {
+                        isAutoLoop = false
+                        val pressStartTime = System.currentTimeMillis()
+                        //只监听 release
+                        if (tryAwaitRelease()) {
+                            isAutoLoop = true
+                            val pressDuration = System.currentTimeMillis() - pressStartTime
+                            //长按后 release 不触发 onClick 事件
+                            if (pressDuration < viewConfiguration.longPressTimeoutMillis) { //400 ms
+                                onItemClick?.invoke(items[pagerState.currentPage])
+                            }
+                        }
+                    },
+                )
+            }
+
+作者：给大佬们点赞
+链接：https://juejin.cn/post/7124893188812668964
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 @Composable
 fun ComposeView(videoViewModel: VideoViewModel = viewModel()){
 
  val exoPlayer = bannerViewModel.getMultipleExoPlayer(banner.data, context, )
- 
+
  VideoView(exoPlayer) {
   videoViewModel.clearPlayer(it)
   }
@@ -54,11 +88,13 @@ fun ComposeView(videoViewModel: VideoViewModel = viewModel()){
 }
 
 ```
+
 <br>
 
-## 添加数据源和缓存，这里我使用了hilt的单例模式
+## 添加数据源和缓存，这里我使用了 hilt 的单例模式
 
-> 注意点：生命周期范围应在viewmodel中
+> 注意点：生命周期范围应在 viewmodel 中
+
 ```kotlin
 
 @OptIn(UnstableApi::class)
@@ -98,6 +134,7 @@ class videoViewModel @Inject constructor(
     private val progressiveMediaSource: ProgressiveMediaSource.Factory
 ) : ViewModel() {
     private val players = hashMapOf<String, Player?>()
+    private var playerListener: Player.Listener? = null
 
     private val _isPlayingEnd = MutableStateFlow(false)
     val isPlayingEnd = _isPlayingEnd.asStateFlow()
@@ -140,15 +177,8 @@ class videoViewModel @Inject constructor(
 
     //exoplayer实例 在这里感谢 https://mp.weixin.qq.com/s/Z5ocXx6kZHN6wd4CNrDZ2w，利用池的概念
     fun getMultipleExoPlayer(url: String, context: Context,isPlayWhenReady:Boolean): Player {
-        return players[url] ?: createExoPlayer(url, context,isPlayWhenReady).also {
-            players[url] = it
-        }
-    }
-
-    private fun createExoPlayer(url: String, context: Context,isPlayWhenReady:Boolean): ExoPlayer {
-        val mediaSource = progressiveMediaSource.createMediaSource(MediaItem.fromUri(url))
-        return ExoPlayer.Builder(context).build().apply {
-            addListener(object : Player.Listener {
+        if (playerListener == null) {
+            playerListener = object : Player.Listener {
                 override fun onPlayerError(error: PlaybackException) {
                     super.onPlayerError(error)
                     setPlayingError(true)
@@ -159,16 +189,53 @@ class videoViewModel @Inject constructor(
                     if (playbackState == Player.STATE_ENDED) {
                         setPlayingEnd(true)
                     }
-
                 }
-            })
-            setMediaSource(mediaSource)
-            prepare()
-            playWhenReady = isPlayWhenReady
+
+            }
+        }
+
+        return players[url] ?: createExoPlayer(url, context,isPlayWhenReady).also {
+            players[url] = it
         }
     }
 
+    private fun createExoPlayer(url: String, context: Context,isPlayWhenReady:Boolean): ExoPlayer {
+         val trackSelectionFactory = AdaptiveTrackSelection.Factory()
+        val trackSelector = DefaultTrackSelector(context, trackSelectionFactory)
+        val mediaSource = progressiveMediaSource.createMediaSource(MediaItem.fromUri(url))
+        val MIN_BUFFER_MS = 1_000
+        val MAX_BUFFER_MS = 50_000
+        val BUFFER_FOR_PLAYBACK_MS = 500
+        val BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS = 1_000
+        val loadControl = DefaultLoadControl.Builder().setBufferDurationsMs(
+            DefaultLoadControl.DEFAULT_MIN_BUFFER_MS, // 最小预加载时间
+            DefaultLoadControl.DEFAULT_MAX_BUFFER_MS, // 最大预加载时间
+            DefaultLoadControl.DEFAULT_BUFFER_FOR_PLAYBACK_MS, // 播放时的缓冲时间
+            DefaultLoadControl.DEFAULT_BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS // 重新缓冲后的播放缓冲时间
+        )
+
+            .setBufferDurationsMs(
+                MIN_BUFFER_MS,
+                MAX_BUFFER_MS,
+                BUFFER_FOR_PLAYBACK_MS,
+                BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS
+
+            ).build()
+
+        return ExoPlayer.Builder(context).setTrackSelector(trackSelector)
+            .setLoadControl(loadControl).build().apply {
+                addListener(playerListener!!)
+                setMediaSource(mediaSource)
+                repeatMode = if (bannerList.size<=1) REPEAT_MODE_ONE else REPEAT_MODE_OFF
+                prepare()
+                playWhenReady = isPlayWhenReady
+            }
+    }
+
     fun clearPlayer(player: Player){
+         if (playerListener != null) {
+            player.removeListener(playerListener!!)
+        }
         player.release()
         players.remove(player.currentMediaItem?.localConfiguration?.uri.toString())
     }
@@ -176,6 +243,9 @@ class videoViewModel @Inject constructor(
     override fun onCleared() {
         super.onCleared()
         players.forEach {
+            if (playerListener != null) {
+                it.value?.removeListener(playerListener!!)
+            }
             it.value?.release()
         }
         players.clear()
@@ -184,7 +254,9 @@ class videoViewModel @Inject constructor(
 }
 
 ```
+
 ## 缓存一定要用单例模式
+
 ```kotlin
 
 @UnstableApi
@@ -208,12 +280,9 @@ class VideoCache {
 ```
 
 ## 总结
-经结合HorizontalPager测试，exoplayer占用内存大小不到90m（根据视频大小），每次切换都会释放exoplayer实例。
+
+经结合 HorizontalPager 测试，exoplayer 占用内存大小不到 90m（根据视频大小），每次切换都会释放 exoplayer 实例。
 
 ## 还需要补充的点
+
 - 如果想仿抖音那种，还需要，完善动画效果、无缝播放效果、实例缓存等等
-
-
-
-
-
