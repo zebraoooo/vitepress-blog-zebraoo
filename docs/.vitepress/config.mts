@@ -39,15 +39,15 @@ export default defineConfig({
       '/posts/android/': [
         {
           text: 'android',
-          collapsed: false,
           items: [
+            { text: '知识本', link: '/posts/android/index' },
             { text: 'gradle', link: '/posts/android/gradle' },
             { text: 'profiler', link: '/posts/android/profiler' },
             {
               text: 'compose',
               collapsed: false,
               items: [
-                { text: 'index', link: '/posts/android/compose/index' },
+                { text: '知识本', link: '/posts/android/compose/index' },
                 { text: 'exoplayer', link: '/posts/android/compose/exoplayer' }
               ]
             }
