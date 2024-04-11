@@ -43,6 +43,7 @@ export default defineConfig({
             { text: '知识本', link: '/posts/android/index' },
             { text: 'gradle', link: '/posts/android/gradle' },
             { text: 'profiler', link: '/posts/android/profiler' },
+            { text: 'LruCachePool', link: '/posts/android/LruCachePool' },
             {
               text: 'compose',
               collapsed: false,

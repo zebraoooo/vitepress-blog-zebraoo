@@ -286,3 +286,83 @@ class VideoCache {
 ## 还需要补充的点
 
 - 如果想仿抖音那种，还需要，完善动画效果、无缝播放效果、实例缓存等等
+
+
+```kotlin
+enum class ExoPlayerPool {
+    INSTANCE;
+
+    companion object {
+        private const val MIN_POOL_SIZE = 2
+        private const val MAX_POOL_SIZE = 4
+    }
+
+    private val playersPool: Deque<PlayerWrapper> = LinkedList()
+    private val lock = ReentrantLock()
+
+    fun get(context: Context): ExoPlayer {
+        lock.withLock {
+            val playerWrapper = playersPool.pollFirst()
+            return playerWrapper?.player ?: createNewPlayer(context)
+        }
+    }
+
+    private fun createNewPlayer(context: Context): ExoPlayer {
+        return ExoPlayer.Builder(context).build()
+    }
+
+    // 释放播放器
+    fun release(context: Context, player: ExoPlayer) {
+        lock.withLock {
+            playersPool.offerFirst(PlayerWrapper(player.apply {
+                stop()
+                clearMediaItems()
+            }))
+            trimToSize(getMaxPoolSize(context))
+        }
+    }
+
+    // 缓存策略
+    private fun trimToSize(maxSize: Int) {
+        lock.withLock {
+            Log.e("", "ExoPlayerImpl playersPool.size--->${playersPool.size}")
+            while (playersPool.size > maxSize) {
+                val playerWrapper = playersPool.pollLast()
+                playerWrapper?.player?.release()
+            }
+        }
+    }
+
+    // 清空池
+    fun clear() {
+        lock.withLock {
+            while (playersPool.isNotEmpty()) {
+                val playerWrapper = playersPool.pollFirst()
+                playerWrapper?.player?.release()
+            }
+        }
+    }
+
+    private fun getMaxPoolSize(context: Context): Int {
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val memoryInfo = ActivityManager.MemoryInfo()
+        activityManager.getMemoryInfo(memoryInfo)
+        val availableMemory = memoryInfo.availMem / 1024 / 1024 // 转换为MB
+
+        Log.e("", "ExoPlayerImpl availableMemory--->${availableMemory}")
+
+        // 根据可用内存设定播放器个数，这里是一个简单的例子
+        // 可能需要根据具体情况调整内存占用限制和比例
+        return when {
+            availableMemory > 2000 -> 4 // 如果可用内存大于2GB，允许最多4个播放器实例
+            availableMemory > 1000 -> 3 // 如果可用内存大于1GB，允许最多3个播放器实例
+            else -> 2 // 否则，允许最多2个播放器实例
+        }.coerceIn(MIN_POOL_SIZE, MAX_POOL_SIZE) // 确保值在最小和最大值范围内
+    }
+
+    private data class PlayerWrapper(
+        val player: ExoPlayer
+    )
+
+}
+```
