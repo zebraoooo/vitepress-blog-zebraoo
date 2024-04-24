@@ -16,7 +16,7 @@
           <span style="font-size: 13px">年</span>
         </div>
 
-        <template v-for="month in 12">
+        <template v-for="month in reversedMonths">
           <div v-if="hasPosts(year, month)" style="display: flex; gap: 2px">
             <span style="font-size: 15px">
               {{ month }}
@@ -59,9 +59,8 @@ interface Post {
 
 const postList = ref<Post[]>();
 
-postList.value = posts;
+postList.value = posts.sort((a, b) => b.date.time - a.date.time);
 if (tag != null && tag.length > 0) {
-  console.log("posts ", posts);
   postList.value = posts.filter((post) => post.tags.includes(tag));
 }
 
@@ -78,7 +77,7 @@ postList.value.forEach((post) => {
   postsByMonth[year][month].push(post);
 });
 
-const years = Object.keys(postsByYear).sort().reverse();
+const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a)); //年份倒序
 
 function getPostsByMonth(year: number, month: number): Post[] {
   return postsByMonth[year]?.[month] || [];
@@ -87,4 +86,8 @@ function getPostsByMonth(year: number, month: number): Post[] {
 function hasPosts(year: number, month: number): boolean {
   return !!getPostsByMonth(year, month).length;
 }
+
+const reversedMonths = ref(Array.from({ length: 12 }, (_, i) => 12 - i));
+
+
 </script>

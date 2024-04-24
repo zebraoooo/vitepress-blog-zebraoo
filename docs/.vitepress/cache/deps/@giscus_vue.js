@@ -5,7 +5,7 @@ import {
   onMounted,
   openBlock,
   ref
-} from "./chunk-CKQ4TNQ3.js";
+} from "./chunk-O4XWQMLZ.js";
 import "./chunk-Y2F7D3TJ.js";
 
 // node_modules/@giscus/vue/dist/index.js
