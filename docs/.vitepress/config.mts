@@ -65,7 +65,7 @@ export default defineConfig({
           ]
         }
       ],
-      '/posts/data-structure': [
+      '/posts/data-structure/': [
         {
           text: '数据结构',
           collapsed: false,
@@ -100,6 +100,15 @@ export default defineConfig({
                 }
               ]
             },
+          ]
+        }
+      ],
+      '/posts/docker/': [
+        {
+          text: 'docker',
+          collapsed: false,
+          items: [
+            { text: 'docker基本使用', link: '/posts/docker/基本' }
           ]
         }
       ]
