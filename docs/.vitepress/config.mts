@@ -108,10 +108,51 @@ export default defineConfig({
           text: 'docker',
           collapsed: false,
           items: [
-            { text: 'docker基本使用', link: '/posts/docker/基本' }
+            { text: 'docker基本使用', link: '/posts/docker/基本' },
+            { text: 'docker-compose', link: '/posts/docker/docker-compose' },
+            { text: 'dockerfile', link: '/posts/docker/dockerfile使用' },
+            { text: 'docker windows', link: '/posts/docker/windows' },
           ]
         }
-      ]
+      ],
+      '/posts/emqx/':[
+        {
+          text:'emqx',
+          collapsed:false,
+          items:[
+          {
+            text:'emqx使用说明',link:'/posts/emqx/使用说明'
+          }
+          ]
+        }
+      ],
+      '/posts/tdengine/':[
+        {
+          text:'tdengine',
+          collapsed:false,
+          items:[
+          {
+            text:'tdengine使用说明',link:'/posts/tdengine/使用'
+          }
+          ]
+        }
+      ],
+      '/posts/uniapp/': [
+        {
+          text: 'uniapp',
+          items: [
+           
+            {
+              text: 'echarts',
+              collapsed: false,
+              items: [
+                { text: 'echarts分包异步化', link: '/posts/uniapp/echarts/index' },
+              
+              ]
+            }
+          ]
+        }
+      ],
     }
     ,
     socialLinks: [
