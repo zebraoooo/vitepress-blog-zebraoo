@@ -15,7 +15,10 @@ tags:
 <img src="https://raw.githubusercontent.com/zebraoo/picgo/main/zebraoo.life/pages-echart.png" width="600">
 
 
-```
+``` vue
+
+npm install echarts
+
 ChartView.vue
 
 <template>
@@ -75,7 +78,7 @@ const finished = () => {
 
 ```
 
-```
+``` json 
 pages.json
 
 "subPackages": [
@@ -93,7 +96,7 @@ pages.json
 
 ```
 
-```
+``` vue
 在要使用的vue文件中引用 componentPlaceholder
 
 <!-- <route lang="json5" type="page">
