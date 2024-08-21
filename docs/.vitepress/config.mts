@@ -153,6 +153,37 @@ export default defineConfig({
           ]
         }
       ],
+      '/posts/spring/':[
+        {
+          text:'Spring',
+          collapsed:false,
+          items:[
+          {
+            text:'Spring',link:'/posts/spring/index'
+          }
+          ]
+        }
+      ],
+      '/posts/linux/':[
+        {
+          text:'Linux',
+          collapsed:false,
+          items:[
+          {
+            text:'Linux',link:'/posts/linux/使用.md'
+          }
+          ]
+        },
+        {
+          text:'nginx',
+          collapsed:false,
+          items:[
+          {
+            text:'Nginx',link:'/posts/linux/nginx.md'
+          }
+          ]
+        }
+      ],
     }
     ,
     socialLinks: [
