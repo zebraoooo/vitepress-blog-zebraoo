@@ -30,3 +30,10 @@ public interface SmartInitializingSingleton {
 }
 
 ```
+
+
+QueryDSL Q类无法生成的问题
+https://www.cnblogs.com/roostinghawk/p/12257785.html
+
+在Maven中先手动执行apt
+然后在project项目中右键maven-Generate Sources And Update Folders

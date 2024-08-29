@@ -11,3 +11,25 @@ minio/minio server \
 
 
  https://www.cnblogs.com/Chary/articles/18271409
+
+ http://*****/:9090
+
+ 配置key
+minio
+访问站点
+43.138.9.96:9000
+自定义域名
+请输入自定义域名
+accessKey
+ruoyi
+secretKey
+••••••••
+桶名称
+ruoyi
+前缀
+请输入前缀
+是否HTTPS
+桶权限类型
+域
+请输入域
+备注
