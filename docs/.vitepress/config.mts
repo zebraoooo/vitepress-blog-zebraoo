@@ -11,6 +11,13 @@ const RSS: RSSOptions = {
   baseUrl,
   copyright: "Copyright (c) 2018-present, zebraoo.life",
   description: 'A VitePress Site zebraoo.life',
+  id: baseUrl,
+  link: baseUrl,
+  url: `${baseUrl}/feed.rss`,
+  language: 'zh-cn',
+  image: 'https://zebraoo.life/logo.png',
+  favicon: 'https://zebraoo.life/logo.png',
+  limit: 100
 };
 
 export default defineConfig({
