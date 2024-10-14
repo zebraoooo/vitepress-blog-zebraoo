@@ -10,7 +10,7 @@ const RSS: RSSOptions = {
   title: "zebraoo.life",
   baseUrl,
   copyright: "Copyright (c) 2018-present, zebraoo.life",
-  description: 'feedId:68549517921839104+userId:67394577382537216',
+  description: 'A VitePress Site zebraoo.life',
 };
 
 export default defineConfig({
