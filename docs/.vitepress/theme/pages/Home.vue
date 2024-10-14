@@ -33,7 +33,6 @@
         </button>
       </div>
     </div>
-    This message is used to verify that this feed (feedId:68549517921839104) belongs to me (userId:67394577382537216). Join me in enjoying the next generation information browser https://follow.is.
   </div>
 </template>
 
