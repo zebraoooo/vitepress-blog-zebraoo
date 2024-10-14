@@ -7,17 +7,18 @@ import { RSSOptions, RssPlugin } from "vitepress-plugin-rss";
 
 const baseUrl = "https://zebraoo.life";
 const RSS: RSSOptions = {
+
   title: "zebraoo.life",
+  baseUrl,
+  copyright: "Copyright (c) 2018-present, zebraoo.life",
   description: "A VitePress Site zebraoo.life",
   image: "https://zebraoo.life/logo.png",
   favicon: "https://zebraoo.life/logo.png",
-  baseUrl,
   id: baseUrl,
   link: baseUrl,
   url: `${baseUrl}/feed.rss`,
   language: "zh-cn",
   limit: 100,
-  copyright: "Copyright (c) 2023-present, zebraoo.life",
 };
 
 export default defineConfig({
