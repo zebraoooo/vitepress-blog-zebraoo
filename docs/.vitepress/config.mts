@@ -16,7 +16,7 @@ const RSS: RSSOptions = {
   url: `${baseUrl}/feed.rss`,
   language: "zh-cn",
   image: "https://zebraoo.life/logo.png",
-  favicon: 'https://zebraoo.life/logo.png',
+  favicon: "https://zebraoo.life/logo.png",
   icon: true,
   limit: 100,
 };
@@ -24,6 +24,7 @@ const RSS: RSSOptions = {
 export default defineConfig({
   title: "zebraoo.life",
   description: "A VitePress Site zebraoo.life",
+  head: [["link", { rel: "icon", href: "/logo.png" }]],
   markdown: {
     image: {
       lazyLoading: true,
