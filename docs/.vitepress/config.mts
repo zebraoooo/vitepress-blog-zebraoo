@@ -10,7 +10,7 @@ const RSS: RSSOptions = {
   title: "zebraoo.top",
   baseUrl,
   copyright: "Copyright (c) 2018-present, zebraoo.top",
-  description: "A VitePress Site zebraoo.top",
+  description: "feedId:69656848367534080+userId:67394577382537216",
   image: "https://zebraoo.top/logo.png",
   favicon: "https://zebraoo.top/logo.png",
   id: baseUrl,
