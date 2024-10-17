@@ -12,7 +12,7 @@ tags:
 
 ## echarts uniapp 分包异步化
 
-<img src="https://raw.githubusercontent.com/zebraoo/picgo/main/zebraoo.life/pages-echart.png" width="600">
+<img src="https://raw.githubusercontent.com/zebraoo/picgo/main/zebraoo.top/pages-echart.png" width="600">
 
 
 ``` vue

@@ -5,15 +5,14 @@ import { TDesignResolver } from "unplugin-vue-components/resolvers";
 import { RSSOptions, RssPlugin } from "vitepress-plugin-rss";
 // https://vitepress.dev/reference/site-config
 
-const baseUrl = "https://zebraoo.life";
+const baseUrl = "https://zebraoo.top";
 const RSS: RSSOptions = {
-
-  title: "zebraoo.life",
+  title: "zebraoo.top",
   baseUrl,
-  copyright: "Copyright (c) 2018-present, zebraoo.life",
-  description: "A VitePress Site zebraoo.life",
-  image: "https://zebraoo.life/logo.png",
-  favicon: "https://zebraoo.life/logo.png",
+  copyright: "Copyright (c) 2018-present, zebraoo.top",
+  description: "A VitePress Site zebraoo.top",
+  image: "https://zebraoo.top/logo.png",
+  favicon: "https://zebraoo.top/logo.png",
   id: baseUrl,
   link: baseUrl,
   url: `${baseUrl}/feed.rss`,
@@ -22,8 +21,8 @@ const RSS: RSSOptions = {
 };
 
 export default defineConfig({
-  title: "zebraoo.life",
-  description: "A VitePress Site zebraoo.life",
+  title: "zebraoo.top",
+  description: "A VitePress Site zebraoo.top",
   head: [["link", { rel: "icon", href: "/logo.png" }]],
   markdown: {
     image: {
@@ -50,7 +49,7 @@ export default defineConfig({
     ],
   },
   sitemap: {
-    hostname: "https://zebraoo.life",
+    hostname: "https://zebraoo.top",
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

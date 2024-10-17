@@ -3,7 +3,9 @@
     <a :href="post.url">
       <span>{{ post.title }}</span>
     </a>
-    <span style="font-size: 13px">{{ dayjs(post.date.time).format("YYYY-MM-DD") }}</span>
+    <span style="font-size: 13px">{{
+      dayjs(post.date.time).format("YYYY-MM-DD")
+    }}</span>
   </div>
 </template>
 
@@ -11,8 +13,9 @@
 import dayjs from "dayjs";
 import { computed } from "vue";
 defineProps({
-  post: Object,
+  post: {
+    type: Object,
+    default: () => {},
+  },
 });
-
-
 </script>

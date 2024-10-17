@@ -10,7 +10,7 @@ tags:
 ## Bytecode Level
 
 create new module 出现 Bytecode Level
-<img src="https://raw.githubusercontent.com/zebraoo/picgo/main/zebraoo.life/微信截图_20240403165400.png" width="600">
+<img src="https://raw.githubusercontent.com/zebraoo/picgo/main/zebraoo.top/微信截图_20240403165400.png" width="600">
 
 
 和module的build.gradle

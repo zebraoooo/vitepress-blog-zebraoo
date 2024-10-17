@@ -1,8 +1,8 @@
 <template>
   <div style="padding-top: 30px">
     <div
-      style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px"
-      v-if="tag"
+        style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px"
+        v-if="tag"
     >
       <span style="font-size: 20px">{{ tag }}</span>
       {{ postList?.length }}
@@ -25,11 +25,11 @@
           </div>
 
           <PostItem
-            v-if="hasPosts(year, month)"
-            :post="post"
-            v-for="post of getPostsByMonth(year, month)"
-            :key="post.title"
-            style="margin: 5px 0px"
+              v-if="hasPosts(year, month)"
+              :post="post"
+              v-for="post of getPostsByMonth(year, month)"
+              :key="post.title"
+              style="margin: 5px 0px"
           />
         </template>
       </div>
@@ -38,11 +38,11 @@
 </template>
 
 <script setup lang="ts">
-import { data as posts } from "../posts.data";
+import {data as posts} from "../posts.data";
 import dayjs from "dayjs";
 import PostItem from "../components/BlogItem.vue";
-import { getQueryParam } from "../utils";
-import { ref } from "vue";
+import {getQueryParam} from "../utils";
+import {ref} from "vue";
 
 const tag = getQueryParam("tag");
 
@@ -87,7 +87,7 @@ function hasPosts(year: number, month: number): boolean {
   return !!getPostsByMonth(year, month).length;
 }
 
-const reversedMonths = ref(Array.from({ length: 12 }, (_, i) => 12 - i));
+const reversedMonths = ref(Array.from({length: 12}, (_, i) => 12 - i));
 
 
 </script>
