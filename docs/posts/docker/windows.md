@@ -9,6 +9,9 @@ tags:
   - windows
 ---
 
+安装教程
+https://blog.csdn.net/HYP_Coder/article/details/141753300
+
 ## 关于Windows端口没被占用提示An attempt was made to access a socket in a way forbidden by its access permissions
 
 https://blog.csdn.net/tian2342/article/details/108934646
