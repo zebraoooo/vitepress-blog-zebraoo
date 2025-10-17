@@ -29,6 +29,10 @@ export default defineConfig({
       lazyLoading: true,
     },
   },
+  ignoreDeadLinks: [
+    // 忽略所有 localhost 链接
+    /^https?:\/\/localhost/,
+  ],
   vite: {
     plugins: [
       AutoImport({
