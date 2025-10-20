@@ -223,6 +223,30 @@ export default defineConfig({
           ],
         },
       ],
+      "/posts/rocket/":[
+        {
+          text: "RocketMQ",
+          collapsed: false,
+          items: [
+            {
+              text: "RocketMQ",
+              link: "/posts/rocketmq/index.md",
+            },
+          ],
+        },
+      ],
+      "/posts/vscode/":[
+        {
+          text: "Vscode",
+          collapsed: false,
+          items: [
+            {
+              text: "vscode使用说明",
+              link: "/posts/vscode/index.md",
+            },
+          ],
+        },
+      ],
     },
     socialLinks: [
       {
