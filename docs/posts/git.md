@@ -6,6 +6,10 @@ tags:
   - git
 ---
 
+git config --global --unset http.proxy 
+git config --global --unset https.proxy
+
+
 > 请确保已在 Git 中配置你的 "user.name" 和 "user.email"。
 ```
 git config --global user.name "你的用户名"

@@ -38,7 +38,40 @@ services: # services里面就是我们所有需要进行编排的服务
             dockerfile: redis-dockerfile #同级目录下的redis文件
 ```
 
+## 范例
+```
+services:
+  redis:
+    image: redis:8.2.2-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always
 
-```text
+  emqx:
+    image: emqx/emqx:5.8.8
+    container_name: emqx
+    ports:
+      - "1883:1883"    # MQTT
+      - "8083:8083"    # MQTT over WebSocket
+      - "8084:8084"    # MQTT over WebSocket (SSL)
+      - "8883:8883"    # MQTT over SSL
+      - "18083:18083"  # EMQX Dashboard
+    restart: always
+
+  tdengine:
+    image: tdengine/tdengine:3.3.6.13
+    container_name: tdengine
+    ports:
+      - "6030:6030"       # RESTful API
+      - "6041:6041"       # Internal communication
+      - "6043:6043"       # Internal communication
+      - "6060:6060"       # Metrics / monitoring
+      - "6044-6049:6044-6049"     # TCP port range
+      - "6044-6045:6044-6045/udp" # UDP port range
+    restart: always
+```
+```
+docker compose up -d
 
 ```

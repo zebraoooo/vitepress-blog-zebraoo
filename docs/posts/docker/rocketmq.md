@@ -3,7 +3,10 @@
 1.拉取RocketMQ镜像
 这里以dockerhub上 RocketMQ 5.3.2 版本的镜像为例，介绍部署过程。
 
+```
 docker pull apache/rocketmq:5.3.2
+
+```
 
 2.创建容器共享网络
 RocketMQ 中有多个服务，需要创建多个容器，创建 docker 网络便于容器间相互通信。
