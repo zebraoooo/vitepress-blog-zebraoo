@@ -139,6 +139,12 @@ export default defineConfig({
             { text: "docker-compose", link: "/posts/docker/docker-compose" },
             { text: "dockerfile", link: "/posts/docker/dockerfile使用" },
             { text: "docker windows", link: "/posts/docker/windows" },
+            { text: "minio", link: "/posts/docker/minio" },
+            { text: "mysql", link: "/posts/docker/mysql" },
+            { text: "rabbitmq", link: "/posts/docker/rabbitmq" },
+            { text: "redis", link: "/posts/docker/redis" },
+            { text: "rocketmq", link: "/posts/docker/rocketmq" },
+
           ],
         },
       ],
